@@ -1,0 +1,13 @@
+    <% if @errors %>
+      <% @errors.each do | error | %>
+        <p>Oh SNAP! <%= error %></p>
+      <% end %>
+    <% end %>
+      <form class="form" action="/auctions" method="POST">
+        <h2 >New Thing!</h2>
+        <label for="inputUsername" class="sr-only">name</label>
+        <input name="auction[name]" type="text" id="inputUsername" class="form-control" placeholder="Title" value="<%= @item.try(:title) %>" required>
+        <label for="inputPassword" class="sr-only">description</label>
+        <textarea placeholder="Description" name="auction[description]" id="inputPassword" class="form-control" required><%= @item.try(:description) %></textarea>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
+      </form>

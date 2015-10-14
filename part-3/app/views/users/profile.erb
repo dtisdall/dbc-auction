@@ -1,0 +1,8 @@
+<p>Hi <%= @user.username %>, here's your stuff</p>
+<ul>
+<% @user.auctions.each do |auction| %>
+<li><a href="/auctions/<%= auction.id %>"><%= auction.name %></a></li>
+<% end %>
+</ul>
+<a href="/auctions/new">Create some new stuff! Fill our accounts with fees</a>
+
