@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= erb :'partials/_head' %>
+  <body>
+    <%= erb :'partials/_nav' %>
+    <div id="content">
+      <!-- Page container -->
+      <div class="page-container login-container">
+        <!-- Page content -->
+        <div class="page-content">
+          <!-- Main content -->
+          <div class="content-wrapper">
+              <%= yield %>
+          </div>  
+          <!-- /main content -->
+        </div>
+        <!-- /page content -->
+
+      </div>
+      <!-- /page container -->
+    </div>
+  </body>
+</html> 

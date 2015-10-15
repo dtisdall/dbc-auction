@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   include BCrypt
 
   has_many :auctions
+  has_many :bids
 
   validates_with PasswordValidator
   validates :username, uniqueness: true
@@ -34,6 +35,10 @@ class User < ActiveRecord::Base
     @password_validation = new_password
     @password = Password.create(new_password)
     self.password_hash = @password
+  end
+
+  def authenticated?
+    self.id != nil
   end
 
 end

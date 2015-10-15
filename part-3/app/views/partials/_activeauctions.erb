@@ -1,0 +1,30 @@
+<% unless auctions.empty? %>
+<div class="panel panel-flat">
+  <div class="panel-heading">
+    <h5 class="panel-title">Active Auctions</h5>
+          </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Bids</th>
+          <th>Ends</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% auctions.each do |auction| %>
+        <tr>
+          <td><a href="/auctions/<%= auction.id %>"><%= auction.name %></a></td>
+          <td><%= auction.description.truncate(45, omission: '...') %></td>
+          <td><%= auction.bid_count %> bids</td>
+          <td>In <%= time_ago_in_words(auction.end_time) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,26 @@
+<div class="panel panel-flat">
+  <div class="panel-heading">
+    <h5 class="panel-title">My Bids</h5>
+          </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Ends</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% bids.each do |bid| %>
+        <tr>
+          <td><a href="/auctions/<%= bid.auction.id %>"><%= bid.auction.name %></a></td>
+          <td><%= bid.price %></td>
+          <td>In <%= time_ago_in_words(bid.auction.end_time) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,9 +1,14 @@
+get '/auctions' do
+  @auctions = Auction.active
+  erb :'auctions/index'
+end
+
 get '/auctions/new' do
   erb :'auctions/new'
 end
 
 post '/auctions' do
-  params[:auction].merge!(user: @user, start_time: Time.now, end_time: Time.now)
+  params[:auction].merge!(user: @user, start_time: Time.now, end_time: Time.now + 1.week)
   @auction = Auction.new(params[:auction])
   if @auction.save
     redirect '/profile'
@@ -16,4 +21,14 @@ end
 get '/auctions/:id' do
   @auction = Auction.find(params[:id])
   erb :'auctions/show'
+end
+
+
+post '/bids' do
+  bid = Bid.new(params[:bid])
+  if bid.save
+    redirect "/auctions/#{bid.auction.id}"
+  else
+    "error"
+  end
 end

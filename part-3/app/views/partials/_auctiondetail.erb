@@ -1,0 +1,31 @@
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">Auction Details</h5>
+    </div>
+
+      <table class="table table-borderless table-xs content-group-sm">
+        <tbody>
+          <tr>
+            <td><i class="icon-briefcase position-left"></i> Status:</td>
+            <td class="text-right"><span class="pull-right"><%= @auction.status %></span></td>
+          </tr>
+          <tr>
+            <td><i class="icon-briefcase position-left"></i> Seller:</td>
+            <td class="text-right"><span class="pull-right"><a href="/users/<%= @auction.user.username %>"><%= @auction.user.username %></a></span></td>
+          </tr>
+          <tr>
+            <td><i class="icon-alarm-add position-left"></i> Starts:</td>
+            <td class="text-right"><%= @auction.start_time.to_formatted_s(:short) %></td>
+          </tr>
+          <tr>
+            <td><i class="icon-alarm-check position-left"></i> Ends:</td>
+            <td class="text-right"><%= @auction.start_time.to_formatted_s(:short) %></td>
+          </tr>
+          <tr>
+            <td><i class="icon-alarm-check position-left"></i> Bids:</td>
+            <td class="text-right"><%= @auction.bid_count %></td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>

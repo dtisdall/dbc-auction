@@ -1,0 +1,23 @@
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">Bidder Menu</h5>
+    </div>
+  <form action="/bids" method="POST">
+    <input type="hidden" name="bid[auction_id]" value="<%= @auction.id %>">
+    <input type="hidden" name="bid[user_id]" value="<%= @user.id %>">
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Bid:</label>
+        <input name="bid[price]" type="number" step="any" class="form-control" placeholder="34.34" required>
+      </div>
+
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Bid! <i class="icon-arrow-right14 position-right"></i></button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+  </div>
+

@@ -1,5 +1,29 @@
-<h1><%= @auction.name %></h1>
-<h2><%= @auction.user.username %></h2>
-<h3><%= @auction.start_time %></h3>
-<h3><%= @auction.end_time %></h3>
-<p><%= @auction.description %></p>
+<div class="col-lg-9">
+
+  <div class="panel panel-flat">
+    <div class="panel-heading mt-5">
+      <h5 class="panel-title"><%= @auction.name %></h5>
+    </div>
+
+    <div class="panel-body">
+      <p><%= @auction.description %></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="col-lg-3">
+
+<%= erb :'partials/_auctiondetail' %>
+
+<% if @user.authenticated? %>
+  <%= erb :'partials/_biddermenu' if @auction.active? && @auction.user != @user %>
+<% end %>
+
+</div>
+
+
+
+
+
+  

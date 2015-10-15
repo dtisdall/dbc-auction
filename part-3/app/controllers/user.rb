@@ -4,7 +4,7 @@ end
 
 # Remove me when home page is built
 get'/' do
-  erb :index
+  redirect '/auctions'
 end
 
 get '/profile' do
@@ -12,12 +12,11 @@ get '/profile' do
 end
 
 get'/register' do
-  @user = User.new
-  erb :'users/register'
+  erb :'users/register', layout: :auth_layout
 end
 
 get '/login' do
-  erb :'users/login'
+  erb :'users/login', layout: :auth_layout
 end
 
 get '/logout' do
@@ -32,7 +31,7 @@ post '/login' do
     redirect '/'
   else
     @errors = [ "You failed to login" ]
-    erb :'users/login'
+    erb :'users/login', layout: :auth_layout
   end
 end
 
@@ -43,6 +42,6 @@ post '/register' do
     redirect '/'
   else
     @errors = @user.errors.full_messages
-    erb :'users/register'
+    erb :'users/register', layout: :auth_layout
   end
 end

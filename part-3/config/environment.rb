@@ -22,6 +22,10 @@ require 'erb'
 
 require 'bcrypt'
 
+require 'action_view'
+require 'action_view/helpers'
+include ActionView::Helpers::DateHelper
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
