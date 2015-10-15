@@ -1,0 +1,25 @@
+<div class="col-lg-9">
+
+  <div class="panel panel-flat">
+    <div class="panel-heading">
+      <h5 class="panel-title">Edit Auction</h5>
+    </div>
+    <div class="panel-body">
+
+      <%= erb :'partials/_errors' if @errors %>
+
+      <form class="form" action="/auctions/<%= @auction.id %>" method="POST">
+        <input type="hidden" name="_method" value="put">
+      <%= erb :'partials/_auctionform' %>
+        <button class="btn btn-primary pull-right" type="submit">Save</button>
+      </form>
+    </div> 
+  </div>
+
+</div>
+
+<div class="col-lg-3">
+
+<%= erb :'partials/_auctiondetail' %>
+
+</div>

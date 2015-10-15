@@ -1,0 +1,8 @@
+      <div class="form-group">
+        <label for="inputName" class="sr-only">Name</label>
+        <input name="auction[name]" type="text" id="inputName" class="form-control" placeholder="Title" value="<%= @auction.try(:name) %>" required>
+      </div>
+      <div class="form-group">
+        <label for="inputDescription" class="sr-only">Description</label>
+        <textarea placeholder="Description" name="auction[description]" id="inputDescription" class="form-control" required><%= @auction.try(:description) %></textarea>
+      </div>

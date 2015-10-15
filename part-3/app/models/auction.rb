@@ -1,7 +1,7 @@
 class Auction < ActiveRecord::Base
   validates :name, :description, :start_time, :end_time, presence: true
   belongs_to :user
-  has_many :bids
+  has_many :bids, dependent: :destroy
 
   def self.active
     Auction.all.select{|auction| auction.active? }

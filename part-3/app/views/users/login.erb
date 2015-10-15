@@ -7,11 +7,7 @@
                 <h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
               </div>
 
-              <% if @errors %>
-                <% @errors.each do | error | %>
-                  <div class="alert alert-danger no-border"><%= error %></div>
-                <% end %>
-              <% end %>
+              <%= erb :'partials/_errors' if @errors %>
 
               <div class="form-group has-feedback has-feedback-left">
                 <input name="user[username]" type="text" class="form-control" placeholder="Username" required>

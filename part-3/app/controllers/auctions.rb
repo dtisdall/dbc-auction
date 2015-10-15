@@ -32,3 +32,29 @@ post '/bids' do
     "error"
   end
 end
+
+
+get '/auctions/:id/edit' do
+  @auction = Auction.find(params[:id])
+  erb :'auctions/edit'
+end
+
+put '/auctions/:id' do
+  auction = Auction.find(params[:id])
+  if auction.user = @user
+    auction.update_attributes(params[:auction])
+    redirect "/auctions/#{auction.id}"
+  else
+    "error"
+  end
+end
+
+delete '/auctions/:id' do
+  auction = Auction.find(params[:id])
+  if auction.user = @user
+    auction.delete
+    redirect '/profile'
+  else
+    "error"
+  end
+end
